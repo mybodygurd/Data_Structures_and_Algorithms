@@ -41,7 +41,7 @@ class Array:
         for i in range(self.__nItems):
             function(self.__a[i])
             
-    def getMaxNum(self):
+    def deleteMaxNum(self):
         max_num = 0
         contain_num = False
         
@@ -51,6 +51,7 @@ class Array:
                 if self.__a[i] > max_num:
                     max_num = self.__a[i]
         if contain_num:
+            self.delete(max_num)
             return max_num
         else:
             return None
