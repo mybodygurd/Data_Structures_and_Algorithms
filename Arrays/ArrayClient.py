@@ -21,11 +21,11 @@ arr.set(3, 33)
 print("Array after deletions has", len(arr), "items")
 arr.traverse()
 
-print("The highest number of array:", arr.getMaxNum())
+print("The highest number of array:", arr.deleteMaxNum())
 
 str_items = ['Mahdi', 'string', 'Python', 'data structure']
 
 for item in str_items:
     str_arr.insert(item)
     
-print('the highest number in string array returns', str_arr.getMaxNum())
+print('the highest number in string array returns', str_arr.deleteMaxNum())
