@@ -1,6 +1,7 @@
 class Array:
     def __init__(self, initialSize):
-        self.__a = [None] * initialSize
+        self.initialSize = initialSize
+        self.__a = [None] * self.initialSize
         self.__nItems = 0
         
     def __len__(self):
@@ -33,7 +34,7 @@ class Array:
             if self.__a[j] == item:
                 self.__nItems -= 1
                 for i in range(j, self.__nItems):
-                    self.__a[j] = self.__a[i + 1]
+                    self.__a[i] = self.__a[i + 1]
                 return True
         return False
     
@@ -55,3 +56,28 @@ class Array:
             return max_num
         else:
             return None
+    
+    def removeDupes(self):
+        unique_items = [None] * self.initialSize
+        idx = 0
+        contain_dupes = False
+        
+        for i in range(self.__nItems):
+            if self.__a[i] not in unique_items:
+                unique_items[idx] = self.__a[i]
+                idx += 1
+            else:
+                self.__nItems -= 1
+                contain_dupes = True
+                
+        self.__a = [None] * self.initialSize
+        for j in range(idx):
+            self.set(j, unique_items[j])
+            
+        if contain_dupes == False:
+            return None
+        
+            
+        
+                
+                    
