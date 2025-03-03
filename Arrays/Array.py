@@ -76,8 +76,4 @@ class Array:
             
         if contain_dupes == False:
             return None
-        
-            
-        
-                
-                    
+    #removeDupes optimization               

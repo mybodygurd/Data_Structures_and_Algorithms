@@ -66,6 +66,31 @@ class OrderedRecordArray:
                 self.__a[k] = self.__a[k + 1]
             return True
         return False
-            
-        
     
+    def merge(self, arr):
+        if self.__key != arr.__key:
+            raise ValueError("Cannot merge arrays with different key functions")
+        
+        merged_list = [None] * (self.__nItem + arr.__nItem)
+        i = j = k = 0
+        
+        while i < self.__nItem and j < arr.__nItem:
+            if self.__key(self.__a[i]) <= self.__key(arr.__a[j]):
+                merged_list[k] = self.__a[i]
+                i += 1
+            else:
+                merged_list[k] = arr.__a[j]
+                j += 1
+            k += 1
+            
+        while i < self.__nItem:
+            merged_list[k] = self.__a[i]
+            i += 1
+            k += 1
+        
+        while j < arr.__nItem:
+            merged_list[k] = arr.__a[j]
+            j += 1
+            k += 1
+            
+        return merged_list  
